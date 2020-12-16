@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Text, View, Button, TextInput } from "react-native";
 import firebase from "../../firebase";
 
-class Register extends Component {
+class Login extends Component {
     constructor(props) {
         super(props);
 
@@ -47,4 +47,4 @@ class Register extends Component {
     }
 }
 
-export default Register;
+export default Login;
