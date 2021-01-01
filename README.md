@@ -12,8 +12,10 @@
 
 2. `cd instagram`
 
-3. `npm install' all dependencies
+3. `npm install` 
+- install all dependencies
 
-4.  `yarn web` for running development on the browser
+4.  `yarn web` 
+- for running development on the browser
 
 ### Started from [Expo](https://docs.expo.io/) managed project
