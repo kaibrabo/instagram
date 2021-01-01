@@ -7,11 +7,19 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import rootReducer from "./redux/reducers";
+import thunk from "redux-thunk";
+
 import Landing from "./components/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import MainScreen from "./components/Main";
 
 const Stack = createStackNavigator();
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -64,9 +72,9 @@ class App extends Component {
         }
 
         return (
-            <View>
-                <Text> User is Logged in</Text>
-            </View>
+            <Provider store={store}>
+                <MainScreen />
+            </Provider>
         );
     }
 }
