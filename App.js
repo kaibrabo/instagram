@@ -16,6 +16,7 @@ import Landing from "./components/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import MainScreen from "./components/Main";
+import AddScreen from "./components/main/Add";
 
 const Stack = createStackNavigator();
 const store = createStore(rootReducer, applyMiddleware(thunk));
@@ -73,7 +74,16 @@ class App extends Component {
 
         return (
             <Provider store={store}>
-                <MainScreen />
+                <NavigationContainer>
+                    <Stack.Navigator initialRouteName="Main">
+                        <Stack.Screen
+                            name="Main"
+                            component={MainScreen}
+                            options={{ title: "Instagram", headerShown: false }}
+                        />
+                        <Stack.Screen name="Add" component={AddScreen} />
+                    </Stack.Navigator>
+                </NavigationContainer>
             </Provider>
         );
     }
